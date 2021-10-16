@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ait.IPCalculator.Wpf", "Ait.IPCalculator.Wpf\Ait.IPCalculator.Wpf.csproj", "{B7D7A542-4B88-4AD8-B55B-2E1F6B6BD978}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ait.IPCalculator.Core", "Ait.IPCalculator.Core\Ait.IPCalculator.Core.csproj", "{D0D3398D-49D3-43B2-8B3F-4E1FB2D977E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B7D7A542-4B88-4AD8-B55B-2E1F6B6BD978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D7A542-4B88-4AD8-B55B-2E1F6B6BD978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D7A542-4B88-4AD8-B55B-2E1F6B6BD978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D3398D-49D3-43B2-8B3F-4E1FB2D977E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D3398D-49D3-43B2-8B3F-4E1FB2D977E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D3398D-49D3-43B2-8B3F-4E1FB2D977E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D3398D-49D3-43B2-8B3F-4E1FB2D977E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
