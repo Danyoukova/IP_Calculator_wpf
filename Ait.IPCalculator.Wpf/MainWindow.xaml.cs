@@ -64,7 +64,8 @@ namespace Ait.IPCalculator.Wpf
             txtNetworkType.Text = typeNetwork;
 
             //Classe van het adres bepalen:
-            txtNetworkClass.Text = convertService.CheckClass(int.Parse(separateIpDec[0]));
+            string networkClass= convertService.CheckClass(int.Parse(separateIpDec[0]));
+            txtNetworkClass.Text = networkClass;
 
             //string met subnetmask verdelen in twee delen tot aan prefix
             string[] separatedSubNetM = selectedSubnetMask.Split('/');

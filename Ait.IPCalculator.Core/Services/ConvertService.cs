@@ -162,19 +162,19 @@ namespace Ait.IPCalculator.Core.Services
             {
                 classAddress = "A";
             }
-            if (firstByte > 127 && firstByte < 191)
+            if (firstByte >= 127 && firstByte < 191)
             {
                 classAddress = "B";
             }
-            if (firstByte > 191 && firstByte < 223)
+            if (firstByte >= 191 && firstByte < 223)
             {
                 classAddress = "C";
             }
-            if (firstByte > 223 && firstByte < 239)
+            if (firstByte >= 223 && firstByte < 239)
             {
                 classAddress = "D";
             }
-            if (firstByte > 239 && firstByte < 255)
+            if (firstByte >= 239 && firstByte < 255)
             {
                 classAddress = "E";
             }
