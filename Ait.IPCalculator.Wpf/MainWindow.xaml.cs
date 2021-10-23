@@ -88,8 +88,16 @@ namespace Ait.IPCalculator.Wpf
 
             //Netwerknr van binair naar dotted decimal:
             string NWbit = txtNetworkAddressBit.Text;
-            string convertednrToDD = convertService.BinaryToDD(NWbit);
+            string convertednrToDD = convertService.BinaryNrDotted(NWbit);
             txtNetworkAddressDD.Text = convertednrToDD.ToString();
+
+            //First host bepalen:
+            string[] str = convertednrToDD.Split('.');
+            string[] firstHostarr = convertService.ChangeToFirstHost(str);
+            string joined = convertService.JoinArr(firstHostarr);
+            txtFirstHostAddressDD.Text = joined.ToString();
+
+
 
         }
         private void ClearControls()
