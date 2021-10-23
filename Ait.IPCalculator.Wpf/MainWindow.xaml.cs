@@ -97,7 +97,11 @@ namespace Ait.IPCalculator.Wpf
             string joined = convertService.JoinArr(firstHostarr);
             txtFirstHostAddressDD.Text = joined.ToString();
 
-
+            //First host naar binair omzetten:
+            string firsthostDEC = txtFirstHostAddressDD.Text;
+            string[] newarr = convertService.SplitString(firsthostDEC);
+            string convertedFhost = convertService.ForeachToBinary(newarr);
+            txtFirstHostAddressBit.Text = convertedFhost.ToString();
 
         }
         private void ClearControls()
