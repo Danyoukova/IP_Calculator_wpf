@@ -126,6 +126,11 @@ namespace Ait.IPCalculator.Wpf
             string[] broadcastToLastHostarr = convertService.ChangeBroadcastToLastHost(broadcastDDarr);
             string lastHostnr = convertService.JoinArr(broadcastToLastHostarr);
             txtLastHostAddressDD.Text = lastHostnr;
+
+            //last host nr binair
+            string[] splitLastHost = convertService.SplitString(lastHostnr);
+            string binairLastHost = convertService.ForeachToBinary(splitLastHost);
+            txtLastHostAddressBit.Text = binairLastHost;
         }
         private void ClearControls()
         {
