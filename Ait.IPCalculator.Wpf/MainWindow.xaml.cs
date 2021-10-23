@@ -131,6 +131,11 @@ namespace Ait.IPCalculator.Wpf
             string[] splitLastHost = convertService.SplitString(lastHostnr);
             string binairLastHost = convertService.ForeachToBinary(splitLastHost);
             txtLastHostAddressBit.Text = binairLastHost;
+
+            //max hosts bepalen
+            int hostbits = 32 - prefixNumber;
+            int hostnr = convertService.GetMaxHost(hostbits);
+            txtMaxNumberOfHosts.Text = hostnr.ToString();
         }
         private void ClearControls()
         {
