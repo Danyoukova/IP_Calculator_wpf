@@ -86,6 +86,11 @@ namespace Ait.IPCalculator.Wpf
             string secondPartNetwork = (txtSubnetBit.Text).Substring(prefixNumber, 32 - prefixNumber);
             txtNetworkAddressBit.Text = firstPartNetwork + secondPartNetwork;
 
+            //Netwerknr van binair naar dotted decimal:
+            string NWbit = txtNetworkAddressBit.Text;
+            string convertednrToDD = convertService.BinaryToDD(NWbit);
+            txtNetworkAddressDD.Text = convertednrToDD.ToString();
+
         }
         private void ClearControls()
         {
