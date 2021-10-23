@@ -72,9 +72,14 @@ namespace Ait.IPCalculator.Wpf
             //string  subnetmask noteren zonder 'dotted'-notatie
             string[] subnetmaskPart = separatedSubNetM[0].Split('.');
 
-            //subnetmask omzetten naar binair met ChangeToBinary
+            //subnetmask omzetten naar binair
             string subnetmaskToBinary = convertService.ForeachToBinary(subnetmaskPart);
             txtSubnetBit.Text = subnetmaskToBinary;
+
+            //Gekozen prefix bepalen:
+            char[] delimiterChars = { '/', '(', ')' };
+            string[] selectedprefixNumber = separatedSubNetM[1].Split(delimiterChars);
+            int prefixNumber = int.Parse(selectedprefixNumber[1]);
 
         }
         private void ClearControls()
