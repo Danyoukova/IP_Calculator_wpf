@@ -66,7 +66,15 @@ namespace Ait.IPCalculator.Wpf
             //Classe van het adres bepalen:
             txtNetworkClass.Text = convertService.CheckClass(int.Parse(separateIpDec[0]));
 
-           
+            //string met subnetmask verdelen in twee delen tot aan prefix
+            string[] separatedSubNetM = selectedSubnetMask.Split('/');
+
+            //string  subnetmask noteren zonder 'dotted'-notatie
+            string[] subnetmaskPart = separatedSubNetM[0].Split('.');
+
+            //subnetmask omzetten naar binair met ChangeToBinary
+            string subnetmaskToBinary = convertService.ForeachToBinary(subnetmaskPart);
+            txtSubnetBit.Text = subnetmaskToBinary;
 
         }
         private void ClearControls()
