@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ait.IPCalculator.Core.Entities;
+using Ait.IPCalculator.Core.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,27 @@ namespace Ait.IPCalculator.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ConvertService convertService;
+        public List<SubnetMask> subnetMasks;
+
         public MainWindow()
         {
             InitializeComponent();
-            // your code here...
+            convertService = new ConvertService();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SubnetMaskService.InitialiseList();
+            subnetMasks = SubnetMaskService.SubMasks;
+            cmbSubnet.Items.Clear();
+
+            //combobox opvullen bij het laden
+            foreach(SubnetMask subnetMask in subnetMasks)
+            {
+                cmbSubnet.Items.Add(subnetMask);
+            }
+            cmbSubnet.SelectedIndex = 24;
         }
 
         private void btnConvert_Click(object sender, RoutedEventArgs e)
@@ -55,6 +74,6 @@ namespace Ait.IPCalculator.Wpf
             ClearControls();
         }
 
-
+        
     }
 }
