@@ -36,21 +36,25 @@ namespace Ait.IPCalculator.Core.Services
             }
             return result;
         }
-              
-        public string BinaryToDD(string s)
-        {
-            string result = "";
-            for (int c = 0; c < s.Length; c += 8)
-            {
-                result = result + s[c] + ".";
-            }
 
-            string[] splitted = SplitString(result);
-            string joined = JoinArr(splitted);
-            return joined;
+        public string BinaryNrDotted(string nr)
+        {
+            var bitlist = Enumerable
+                       .Range(0, nr.Length / 8)
+                       .Select(i => nr.Substring(i * 8, 8));
+            string resultDotted = string.Join(".", bitlist);
+
+            string[] arrayDD = resultDotted.Split(".");
+            string convertedString = "";
+            foreach (string s in arrayDD)
+            {
+                convertedString += BinaryToDecimal(s) + ".";
+            }
+            
+            return convertedString;
         }
 
-       
+
         public string JoinArr(string[] arr)
         {
             return string.Join(".", arr);
