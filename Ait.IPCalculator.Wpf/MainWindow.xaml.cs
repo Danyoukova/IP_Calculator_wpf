@@ -120,6 +120,12 @@ namespace Ait.IPCalculator.Wpf
             //broadcastaddress omzetten naar dotted decimal:
             string binaryToDotted = convertService.BinaryNrDotted(txtBroadcastAddressBit.Text);
             txtBroadcastAddressDD.Text = binaryToDotted;
+
+            //Last host adres bepalen: broadcastnr-1 = last host nr
+            string[] broadcastDDarr = convertService.SplitString(binaryToDotted);
+            string[] broadcastToLastHostarr = convertService.ChangeBroadcastToLastHost(broadcastDDarr);
+            string lastHostnr = convertService.JoinArr(broadcastToLastHostarr);
+            txtLastHostAddressDD.Text = lastHostnr;
         }
         private void ClearControls()
         {
