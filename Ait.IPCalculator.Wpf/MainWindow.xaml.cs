@@ -25,6 +25,7 @@ namespace Ait.IPCalculator.Wpf
     {
         public ConvertService convertService;
         public List<SubnetMask> subnetMasks;
+        string selectedSubnetMask;
 
         public MainWindow()
         {
@@ -49,8 +50,17 @@ namespace Ait.IPCalculator.Wpf
         private void btnConvert_Click(object sender, RoutedEventArgs e)
         {
             ClearControls();
-            // your code here ...
- 
+
+            //Ip adres in een string array
+            string ipDecimal = txtIP.Text;
+            string[] separateIpDec = ipDecimal.Split('.');
+
+            //Ip omzetten naar binaire notatie
+            string resultstringIP = convertService.ForeachToBinary(separateIpDec);
+            txtIPBit.Text = resultstringIP;
+
+           
+
         }
         private void ClearControls()
         {
@@ -72,6 +82,7 @@ namespace Ait.IPCalculator.Wpf
         private void cmbSubnet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ClearControls();
+            selectedSubnetMask = cmbSubnet.SelectedItem.ToString();
         }
 
         
