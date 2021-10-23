@@ -59,6 +59,13 @@ namespace Ait.IPCalculator.Wpf
             string resultstringIP = convertService.ForeachToBinary(separateIpDec);
             txtIPBit.Text = resultstringIP;
 
+            //type netwerk bepalen
+            string typeNetwork = convertService.CheckTypeOfNetworkadd(ipDecimal);
+            txtNetworkType.Text = typeNetwork;
+
+            //Classe van het adres bepalen:
+            txtNetworkClass.Text = convertService.CheckClass(int.Parse(separateIpDec[0]));
+
            
 
         }
