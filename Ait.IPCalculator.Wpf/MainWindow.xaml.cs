@@ -117,6 +117,9 @@ namespace Ait.IPCalculator.Wpf
             string secondPrtBroadcast = convertService.ChangeAllToBinaryOne(secondPartfhost);
             txtBroadcastAddressBit.Text = firstPartfhost + secondPrtBroadcast;
 
+            //broadcastaddress omzetten naar dotted decimal:
+            string binaryToDotted = convertService.BinaryNrDotted(txtBroadcastAddressBit.Text);
+            txtBroadcastAddressDD.Text = binaryToDotted;
         }
         private void ClearControls()
         {
