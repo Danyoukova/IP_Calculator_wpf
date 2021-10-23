@@ -103,6 +103,20 @@ namespace Ait.IPCalculator.Wpf
             string convertedFhost = convertService.ForeachToBinary(newarr);
             txtFirstHostAddressBit.Text = convertedFhost.ToString();
 
+            //Broadcastaddress bepalen
+            string getHost = txtFirstHostAddressBit.Text;
+
+            //eerste deel van de string is bepaald door prefixnummer
+            //eerste deel tot aan prefix mag zelfde blijven
+            string firstPartfhost = getHost.Substring(0, prefixNumber);
+
+            //tweede deel van de string begint van prefixnr tot het einde
+            int diff = getHost.Length - prefixNumber;
+            string secondPartfhost = getHost.Substring(prefixNumber, diff);
+            //tweede deel van de string omzetten naar 1 bits
+            string secondPrtBroadcast = convertService.ChangeAllToBinaryOne(secondPartfhost);
+            txtBroadcastAddressBit.Text = firstPartfhost + secondPrtBroadcast;
+
         }
         private void ClearControls()
         {
