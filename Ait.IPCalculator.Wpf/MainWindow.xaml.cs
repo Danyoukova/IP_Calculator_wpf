@@ -81,6 +81,11 @@ namespace Ait.IPCalculator.Wpf
             string[] selectedprefixNumber = separatedSubNetM[1].Split(delimiterChars);
             int prefixNumber = int.Parse(selectedprefixNumber[1]);
 
+            //Netwerkadres bepalen
+            string firstPartNetwork = (txtIPBit.Text).Substring(0, prefixNumber);
+            string secondPartNetwork = (txtSubnetBit.Text).Substring(prefixNumber, 32 - prefixNumber);
+            txtNetworkAddressBit.Text = firstPartNetwork + secondPartNetwork;
+
         }
         private void ClearControls()
         {
